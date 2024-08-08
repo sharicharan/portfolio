@@ -1,3 +1,4 @@
+
 body{
     background-color: aqua;
 }
@@ -45,20 +46,53 @@ body{
 text-align: right;
 }
 #image{
-    width: 400px;
+    width: 395px;
     border-radius: 10px;
-    box-shadow: 1px 2px 3px 4px #ccc;
     transition: 0.5s;
 }
-#image:hover{
-    transform: scale(1.1);
+@property --angle{
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
 }
+.profile::after, .profile::before{
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+  background-image: conic-gradient( from var(--angle), transparent 70%, blue);
+    top: 50%;
+    left:50%;
+    transform: translate(-50% , -50%);
+    z-index: -1;
+    padding: 5px;
+    border-radius: 10px;
+    animation: 2s spin linear infinite;
+}
+.profile::before{
+    filter: blur(1.5rem);
+    opacity: 0.5s;
+}
+@keyframes spin {
+    from{
+        --angle:0deg;
+    }
+    to{
+        --angle:360deg;
+    }
+    
+}
+/*#image:hover{
+    transform: scale(1.1);
+}*/
 .profile{
     margin-left: 50px;
+    width: 405px;
+    position: relative;
+    padding:5px;
 }
 #btn-1,#btn-2{
     width:100px;
-    padding: 5px;
     transition: 0.5s;
 }
 #btn-1:active{
