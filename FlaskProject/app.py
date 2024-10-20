@@ -2,7 +2,6 @@ from flask import Flask, render_template, request, url_for, redirect, session
 
 obj = Flask(__name__)
 
-# Corrected users dictionary format
 users =["admin","hari"]
 passwords= ["admin","hari"]
 
